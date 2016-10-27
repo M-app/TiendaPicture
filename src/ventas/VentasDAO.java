@@ -5,7 +5,6 @@
  */
 package ventas;
 
-import compras.ComprasDTO;
 import domain.Conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -21,6 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class VentasDAO implements Ventas{
 
+    
     @Override
     public Collection<VentasDTO> buscarVentas() {
          final ArrayList<VentasDTO> listaRetorno = new ArrayList();
