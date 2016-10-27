@@ -15,10 +15,6 @@ import java.util.Collection;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author Celinda Recinos
- */
 public class ProductosDAO implements Productos {
 
     @Override
