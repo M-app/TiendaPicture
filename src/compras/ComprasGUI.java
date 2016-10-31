@@ -5,6 +5,9 @@
  */
 package compras;
 
+import detalleCompras.DetalleComprasController;
+import domain.Conexion;
+
 /**
  *
  * @author user
@@ -12,6 +15,7 @@ package compras;
 public class ComprasGUI extends javax.swing.JDialog {
 
     ComprasController comprasController = new ComprasController(this);
+    DetalleComprasController detalleComprasController = new DetalleComprasController();
     public ComprasGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -309,11 +313,12 @@ public class ComprasGUI extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        System.out.println(Conexion.getInstance().conectar());
+        comprasController.llenarComboProveedores();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnFinalizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarCompraActionPerformed
-        comprasController.insertarCompra(Float.parseFloat(txtMonto.getText()),txtFecha.getText(), 
+        int idCompra = comprasController.insertarCompra(Float.parseFloat(txtMonto.getText()),txtFecha.getText(), 
                 Integer.parseInt(txtNit.getText()), Integer.parseInt(txtNoFactura.getText()),txtDireccion.getText(),
                 comboProveedor.getSelectedIndex()+1);
     }//GEN-LAST:event_btnFinalizarCompraActionPerformed

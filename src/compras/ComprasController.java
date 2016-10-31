@@ -1,11 +1,13 @@
 package compras;
 
+import detalleCompras.DetalleComprasController;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import productos.Productos;
 import productos.ProductosDTO;
 import proveedores.Proveedores;
+import proveedores.ProveedoresDAO;
 import proveedores.ProveedoresDTO;
 
 public class ComprasController {
@@ -15,10 +17,14 @@ public class ComprasController {
     
     private Proveedores proveedores;
     private Productos productos;
+    
+    DetalleComprasController detalleComprasController;
 
     public ComprasController(ComprasGUI gui) {
         this.comprasGui = gui;
         comprasDao = new ComprasDAO();
+        proveedores = new ProveedoresDAO();
+        detalleComprasController = new DetalleComprasController();
     }
     
     public void llenarTabla(int codigoProducto){
@@ -35,6 +41,16 @@ public class ComprasController {
         columnas[8] = Float.parseFloat(comprasGui.txtSubTotal.getText());
         DefaultTableModel modeloTabla = (DefaultTableModel) comprasGui.tblProductos.getModel();
         modeloTabla.addRow(columnas);
+    }
+    
+    public void insertarDetalleCompra(int idCompra){
+        for(int i = 0; i < comprasGui.tblProductos.getRowCount();i++){
+            detalleComprasController.insertarDetalleCompras(
+                    Integer.parseInt(comprasGui.txtCantidad.getText()), 
+                    Float.parseFloat(comprasGui.txtSubTotal.getText()), 
+                    idCompra, 
+                    Integer.parseInt(comprasGui.tblProductos.getValueAt(i, 0).toString()));
+        }
     }
     
     public String getSubtotal(int cantidad, float precioCosto){
@@ -69,8 +85,9 @@ public class ComprasController {
         }
     }
     
-    public void insertarCompra(float monto, String fecha, int nit,int noFactura, String direccion,int codigoProveedor){
+    public int insertarCompra(float monto, String fecha, int nit,int noFactura, String direccion,int codigoProveedor){
         comprasDao.insertarCompras(monto, fecha, nit, noFactura, direccion,codigoProveedor);
+        return comprasDao.buscarCompras().toArray().length;
     }
     
     public void eliminarCompra(int codigo){
