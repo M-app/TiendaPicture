@@ -5,7 +5,7 @@ import java.util.Collection;
 public interface Ventas {
     
     Collection<VentasDTO> buscarVentas();
-    VentasDTO buscarVentasXCodigo(int codigo);
-    void eliminarVentas();
+    VentasDTO buscarVentasXCodigo(int idVenta);
+    void eliminarVentas(int idVenta);
     void insertarVentas(String fecha, float monto, float descuento, int idCliente);
 }

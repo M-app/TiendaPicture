@@ -19,7 +19,6 @@ public class ComprasController {
     private Productos productos;
     
     DetalleComprasController detalleComprasController;
-
     public ComprasController(ComprasGUI gui) {
         this.comprasGui = gui;
         comprasDao = new ComprasDAO();

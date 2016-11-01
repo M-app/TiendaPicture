@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -10,3 +11,17 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/VentasDTO.java</file>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/VentasGUI.java</file>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/Ventas.java</file>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/VentasDAO.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> dc584f1127f7aab6d72a8f3350a164d63e50601a

@@ -318,9 +318,8 @@ public class ComprasGUI extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnFinalizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarCompraActionPerformed
-        int idCompra = comprasController.insertarCompra(Float.parseFloat(txtMonto.getText()),txtFecha.getText(), 
-                Integer.parseInt(txtNit.getText()), Integer.parseInt(txtNoFactura.getText()),txtDireccion.getText(),
-                comboProveedor.getSelectedIndex()+1);
+
+        
     }//GEN-LAST:event_btnFinalizarCompraActionPerformed
 
     private void txtSubTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubTotalActionPerformed
