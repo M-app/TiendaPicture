@@ -87,6 +87,11 @@ public class ComprasGUI extends javax.swing.JDialog {
             }
         });
 
+        txtSubTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSubTotalFocusGained(evt);
+            }
+        });
         txtSubTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSubTotalActionPerformed(evt);
@@ -196,11 +201,23 @@ public class ComprasGUI extends javax.swing.JDialog {
 
         jLabel3.setText("No. Factura");
 
+        txtFecha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFechaFocusGained(evt);
+            }
+        });
+
         jLabel4.setText("Fecha");
 
         jLabel5.setText("NIT");
 
         jLabel7.setText("Dirección");
+
+        txtMonto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtMontoFocusGained(evt);
+            }
+        });
 
         jLabel8.setText("Monto");
 
@@ -315,10 +332,16 @@ public class ComprasGUI extends javax.swing.JDialog {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         System.out.println(Conexion.getInstance().conectar());
         comprasController.llenarComboProveedores();
+        comprasController.llenarComboProductos();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnFinalizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarCompraActionPerformed
-
+        comprasController.insertarCompra(Float.parseFloat(txtMonto.getText()), txtFecha.getText(), 
+                Integer.parseInt(txtNit.getText()),Integer.parseInt(txtNoFactura.getText()), 
+                txtDireccion.getText(),
+                comprasController.getProveedorXNomContacto(comboProveedor.getSelectedItem().toString()).getCodProveedor());
+        int idCompra = comprasController.getUltimoIdCompra();
+        comprasController.insertarDetalleCompra(idCompra);
         
     }//GEN-LAST:event_btnFinalizarCompraActionPerformed
 
@@ -327,12 +350,26 @@ public class ComprasGUI extends javax.swing.JDialog {
     }//GEN-LAST:event_txtSubTotalActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        // TODO add your handling code here:
+        comprasController.llenarTabla(comprasController.getProductoXDescripcion
+        (comboProductos.getSelectedItem().toString()).getCodigo());
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadActionPerformed
+
+    private void txtSubTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSubTotalFocusGained
+        txtSubTotal.setText(comprasController.getSubtotal(Integer.parseInt(txtCantidad.getText()),
+                comprasController.getProductoXDescripcion(comboProductos.getSelectedItem().toString()).getPrecioCosto()));
+    }//GEN-LAST:event_txtSubTotalFocusGained
+
+    private void txtMontoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMontoFocusGained
+        txtMonto.setText(comprasController.getMonto()+"");
+    }//GEN-LAST:event_txtMontoFocusGained
+
+    private void txtFechaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFechaFocusGained
+        txtFecha.setText(comprasController.getFecha());
+    }//GEN-LAST:event_txtFechaFocusGained
 
     /**
      * @param args the command line arguments

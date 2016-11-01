@@ -52,7 +52,7 @@ public class ProductosDAO implements Productos {
         final ProductosDTO objetoRetorno = new ProductosDTO();
         try {
             Connection conn = Conexion.getInstance().getConexion();
-            CallableStatement sentencia = conn.prepareCall("{call BuscarProductos(?)}");
+            CallableStatement sentencia = conn.prepareCall("{call BuscarProducto(?)}");
             sentencia.setInt(1,codigo);
             ResultSet resultado = sentencia.executeQuery();
             while(resultado.next()){
@@ -80,7 +80,7 @@ public class ProductosDAO implements Productos {
         final ArrayList<ProductosDTO> listaRetorno = new ArrayList();
         try {
             Connection conn = Conexion.getInstance().getConexion();
-            CallableStatement sentencia = conn.prepareCall("{call BuscarProductosG}");
+            CallableStatement sentencia = conn.prepareCall("{call BuscarProductoG}");
             ResultSet resultado = sentencia.executeQuery();
             while(resultado.next()){
                 ProductosDTO com = new ProductosDTO();

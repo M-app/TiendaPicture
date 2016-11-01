@@ -1,10 +1,15 @@
 package compras;
 
 import detalleCompras.DetalleComprasController;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import javax.swing.DefaultComboBoxModel;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import productos.Productos;
+import productos.ProductosDAO;
 import productos.ProductosDTO;
 import proveedores.Proveedores;
 import proveedores.ProveedoresDAO;
@@ -18,17 +23,21 @@ public class ComprasController {
     private Proveedores proveedores;
     private Productos productos;
     
+    private final Map<String,ProductosDTO> mHashProductos = new HashMap();
+    private final Map<String,ProveedoresDTO> mHashProveedores = new HashMap();
+    
     DetalleComprasController detalleComprasController;
     public ComprasController(ComprasGUI gui) {
         this.comprasGui = gui;
         comprasDao = new ComprasDAO();
         proveedores = new ProveedoresDAO();
+        productos = new ProductosDAO();
         detalleComprasController = new DetalleComprasController();
     }
     
     public void llenarTabla(int codigoProducto){
         ProductosDTO producto = productos.buscarProductoXCodigo(codigoProducto);
-        Object[] columnas = new Object[8];
+        Object[] columnas = new Object[9];
         columnas[0] = producto.getCodigo();
         columnas[1] = producto.getDescripcion();
         columnas[2] = producto.getTamanio();
@@ -52,18 +61,33 @@ public class ComprasController {
         }
     }
     
+    public float getPrecioCosto(int codigoProducto){
+        float retValue = productos.buscarProductoXCodigo(codigoProducto).getPrecioCosto();
+        return retValue;
+    }
+    
     public String getSubtotal(int cantidad, float precioCosto){
         return (cantidad * precioCosto) + "";
     }
    
     public void llenarComboProductos(){
         for(ProductosDTO producto : productos.buscarProductos()){
+            mHashProductos.put(producto.getDescripcion(), producto);
             comprasGui.comboProductos.addItem(producto.getDescripcion());
         }
     }
     
+    public ProductosDTO getProductoXDescripcion(String descripcion){
+        return mHashProductos.get(descripcion);
+    }
+    
+    public ProveedoresDTO getProveedorXNomContacto(String nomContacto){
+        return mHashProveedores.get(nomContacto);
+    }
+    
     public void llenarComboProveedores(){
         for(ProveedoresDTO proveedor : proveedores.buscarProveedores()){
+            mHashProveedores.put(proveedor.getNomContacto(), proveedor);
             comprasGui.comboProveedor.addItem(proveedor.getNomContacto());
         }
     }
@@ -84,9 +108,27 @@ public class ComprasController {
         }
     }
     
-    public int insertarCompra(float monto, String fecha, int nit,int noFactura, String direccion,int codigoProveedor){
+    public String getFecha(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return dateFormat.format(date); //29/10/2016
+    }
+    
+    public int getUltimoIdCompra(){
+        ArrayList<ComprasDTO> listaCompras =  (ArrayList) comprasDao.buscarCompras();
+        return listaCompras.get(listaCompras.size()-1).getIdCompra();
+    }
+    
+    public float getMonto(){
+        float retValue = 0;
+        for(int i = 0; i< comprasGui.tblProductos.getRowCount() ; i++){
+            retValue += Float.parseFloat(comprasGui.tblProductos.getValueAt(i, 8).toString());
+        }
+        return retValue;
+    }
+    
+    public void insertarCompra(float monto, String fecha, int nit,int noFactura, String direccion,int codigoProveedor){
         comprasDao.insertarCompras(monto, fecha, nit, noFactura, direccion,codigoProveedor);
-        return comprasDao.buscarCompras().toArray().length;
     }
     
     public void eliminarCompra(int codigo){
