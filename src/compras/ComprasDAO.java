@@ -16,7 +16,7 @@ public class ComprasDAO implements Compras {
         final ComprasDTO objetoRetorno = new ComprasDTO();
         try {
             Connection conn = Conexion.getInstance().getConexion();
-            CallableStatement sentencia = conn.prepareCall("{call BuscarCompras(?)}");
+            CallableStatement sentencia = conn.prepareCall("{call BuscarGastos(?)}");
             sentencia.setInt(1, codigo);
             ResultSet resultado = sentencia.executeQuery();
             while(resultado.next()){

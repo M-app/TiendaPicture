@@ -1,11 +1,33 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/zzuan_000/Documents/NetBeansProjects/Pictures/TiendaPicture/src/cajaChica/CajaChicaC.java</file>
             <file>file:/C:/Users/zzuan_000/Documents/NetBeansProjects/Pictures/TiendaPicture/src/cajaChica/CajaChicaDAO.java</file>
             <file>file:/C:/Users/zzuan_000/Documents/NetBeansProjects/Pictures/TiendaPicture/src/cajaChica/CajaChicaGUI.java</file>
+=======
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/TiendaPictures/src/main.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/TiendaPictures/src/compras/ComprasController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/TiendaPictures/src/compras/ComprasGUI.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/TiendaPictures/src/detalleCompras/DetalleComprasController.java</file>
+>>>>>>> 59679b71ea33e4b753b67e26de9b9676ba2003df
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/VentasDTO.java</file>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/VentasGUI.java</file>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/Ventas.java</file>
+            <file>file:/C:/Users/Celinda%20Recinos/Documents/NetBeansProjects/TiendaPicture/src/ventas/VentasDAO.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> dc584f1127f7aab6d72a8f3350a164d63e50601a

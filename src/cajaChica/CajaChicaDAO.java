@@ -70,6 +70,4 @@ public class CajaChicaDAO implements CajaChica {
         }
         catch(Exception e){}
     }*/
-
-    
-}
+    }
