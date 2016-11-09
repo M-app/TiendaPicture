@@ -9,8 +9,8 @@ public class main {
         // se conecta a la base de datos e imprime en cosola la respuesta de la conexion
         System.out.println(Conexion.getInstance().conectar());
         
-        
-        //dao.eliminarCompras(7);
+        JFPrincipal principal = new JFPrincipal();
+        principal.setVisible(true);
     }
     
 }
