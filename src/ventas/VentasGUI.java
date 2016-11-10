@@ -51,14 +51,14 @@ public class VentasGUI extends javax.swing.JDialog {
         TxtPrecioPublicoP = new javax.swing.JTextField();
         TxtCantidadPV = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        BtnAgregarProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblProductosV = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         TxtMonto = new javax.swing.JTextField();
         TxtDescuento = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        BtnFinalizarVenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -131,10 +131,10 @@ public class VentasGUI extends javax.swing.JDialog {
 
         jLabel10.setText("Cantidad:");
 
-        jButton2.setText("Agregar Producto");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnAgregarProducto.setText("Agregar Producto");
+        BtnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnAgregarProductoActionPerformed(evt);
             }
         });
 
@@ -163,7 +163,7 @@ public class VentasGUI extends javax.swing.JDialog {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtPrecioPublicoP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2))
+                    .addComponent(BtnAgregarProducto))
                 .addGap(98, 98, 98))
         );
         jPanel2Layout.setVerticalGroup(
@@ -181,7 +181,7 @@ public class VentasGUI extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(TxtCantidadPV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(BtnAgregarProducto))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -207,10 +207,10 @@ public class VentasGUI extends javax.swing.JDialog {
 
         jLabel12.setText("Descuento:");
 
-        jButton3.setText("Finalizar Venta");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BtnFinalizarVenta.setText("Finalizar Venta");
+        BtnFinalizarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BtnFinalizarVentaActionPerformed(evt);
             }
         });
 
@@ -227,11 +227,11 @@ public class VentasGUI extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 117, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(97, 97, 97)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(97, 97, 97))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -241,7 +241,7 @@ public class VentasGUI extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24)
-                                .addComponent(jButton3)
+                                .addComponent(BtnFinalizarVenta)
                                 .addGap(237, 237, 237))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -260,7 +260,7 @@ public class VentasGUI extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
+                    .addComponent(BtnFinalizarVenta)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
                         .addComponent(TxtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,10 +291,15 @@ public class VentasGUI extends javax.swing.JDialog {
         TxtPrecioPublicoP.setText(String.valueOf(ventasController.getProductoXDescripcion(ComboProductosV.getSelectedItem().toString()).getPrecioPublico()));
     }//GEN-LAST:event_TxtPrecioPublicoPFocusGained
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarProductoActionPerformed
         ventasController.llenarTabla(ventasController.getProductoXDescripcion
         (ComboProductosV.getSelectedItem().toString()).getCodigo());
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+        TxtExistenciaP.setText("");
+        TxtPrecioPublicoP.setText("");
+        TxtCantidadPV.setText("");
+        ComboProductosV.setSelectedIndex(-1);
+    }//GEN-LAST:event_BtnAgregarProductoActionPerformed
 
     private void TxtMontoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtMontoFocusGained
         TxtMonto.setText(String.valueOf(ventasController.getMonto()));
@@ -302,13 +307,13 @@ public class VentasGUI extends javax.swing.JDialog {
         System.out.println();
     }//GEN-LAST:event_TxtMontoFocusGained
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BtnFinalizarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFinalizarVentaActionPerformed
         ventasController.insertarVentas(Fecha.getText(),Float.parseFloat(TxtMonto.getText()),
                 Float.parseFloat(TxtDescuento.getText()),
                 ventasController.getClienteXNombre(ComboClientes.getSelectedItem().toString()).getIdCliente());
         
         ventasController.insertarDetalleVenta(Integer.parseInt(idVenta.getText()));
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BtnFinalizarVentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,6 +358,8 @@ public class VentasGUI extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAgregarProducto;
+    private javax.swing.JButton BtnFinalizarVenta;
     public static javax.swing.JComboBox<String> ComboClientes;
     public static javax.swing.JComboBox<String> ComboProductosV;
     public static javax.swing.JLabel Fecha;
@@ -363,8 +370,6 @@ public class VentasGUI extends javax.swing.JDialog {
     private javax.swing.JTextField TxtMonto;
     private javax.swing.JTextField TxtPrecioPublicoP;
     public static javax.swing.JLabel idVenta;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
