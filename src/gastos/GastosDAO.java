@@ -6,7 +6,7 @@
 
 package gastos;
 
-import compras.ComprasDTO;
+
 import domain.Conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -69,7 +69,7 @@ public class GastosDAO implements Gastos {
     public void insertarGastos(float cantidad, String fecha, String tipoGasto) {
   try {
             Connection conn = Conexion.getInstance().getConexion();
-            CallableStatement sentencia = conn.prepareCall("{call InsertarGastos(?,?,?)}");
+            CallableStatement sentencia = conn.prepareCall("{call InsertarGastos(?,?,?,?)}");
             sentencia.setFloat("cantidad",cantidad);
             sentencia.setString("fecha", fecha);
             sentencia.setString("tipoGasto", tipoGasto);

@@ -167,6 +167,8 @@ public class ComprasGUI extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tblProductos.setRowHeight(10);
+        tblProductos.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(tblProductos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

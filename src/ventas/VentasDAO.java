@@ -89,9 +89,10 @@ public class VentasDAO implements Ventas{
             sentencia.setString("fecha", fecha);
             sentencia.setFloat("monto",monto);
             sentencia.setFloat("descuento",descuento);
-            sentencia.setInt("idCliente",idCliente);
+            sentencia.setInt("idcliente",idCliente);
             
             sentencia.execute();
+            JOptionPane.showMessageDialog(null,"Datos insertados correctamente en la tabla ventas");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al insertar venta en la base de datos " + ex.getLocalizedMessage());
         }
