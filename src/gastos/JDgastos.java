@@ -6,6 +6,8 @@
 
 package gastos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joseph
@@ -37,6 +39,8 @@ public class JDgastos extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         txtgas = new javax.swing.JTextField();
         cmdinsertar = new javax.swing.JButton();
+        btnsalir = new javax.swing.JButton();
+        cmdlimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -56,31 +60,50 @@ public class JDgastos extends javax.swing.JDialog {
             }
         });
 
+        btnsalir.setText("Salir");
+        btnsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalirActionPerformed(evt);
+            }
+        });
+
+        cmdlimpiar.setText("Limpiar");
+        cmdlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdlimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmdinsertar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(142, 142, 142)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtcan, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtgas, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcan, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtgas, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(cmdinsertar)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmdlimpiar)
+                        .addGap(22, 22, 22)
+                        .addComponent(btnsalir)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,9 +122,12 @@ public class JDgastos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtgas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(cmdinsertar)
-                .addGap(43, 43, 43))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdinsertar)
+                    .addComponent(btnsalir)
+                    .addComponent(cmdlimpiar))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,7 +136,18 @@ public class JDgastos extends javax.swing.JDialog {
     private void cmdinsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdinsertarActionPerformed
         GastosDAO gastos =  new GastosDAO();
         gastos.insertarGastos(Float.parseFloat(txtcan.getText()), txtfecha.getText(), txtgas.getText());
+        JOptionPane.showMessageDialog(null, "Registro agregado exitosamente!");
     }//GEN-LAST:event_cmdinsertarActionPerformed
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void cmdlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdlimpiarActionPerformed
+        txtcan.setText(null);
+        txtfecha.setText(null);
+        txtgas.setText(null);
+    }//GEN-LAST:event_cmdlimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +192,9 @@ public class JDgastos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnsalir;
     private javax.swing.JButton cmdinsertar;
+    private javax.swing.JButton cmdlimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
