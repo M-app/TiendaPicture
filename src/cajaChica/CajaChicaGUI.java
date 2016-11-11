@@ -7,14 +7,15 @@ package cajaChica;
 
 /**
  *
- * @author alumno
+ * @author zzuan_000
  */
-public class CajaChicaGUI extends javax.swing.JFrame {
+public class CajaChicaGUI extends javax.swing.JDialog {
 
     /**
      * Creates new form CajaChicaGUI
      */
-    public CajaChicaGUI() {
+    public CajaChicaGUI(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -28,20 +29,26 @@ public class CajaChicaGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtcajaChica = new javax.swing.JTextField();
-        btnAperturar = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtCodigoCajaC = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtcajaChica = new javax.swing.JTextField();
         txtfecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        btnAperturar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Trajan Pro 3", 1, 24)); // NOI18N
         jLabel1.setText("CAJA CHICA");
+
+        jLabel3.setText("Código:");
+
+        btnBuscar.setText("Buscar");
+
+        jLabel2.setText("Monto  de la apertura:");
 
         txtcajaChica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,26 +56,20 @@ public class CajaChicaGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Fecha:");
+
         btnAperturar.setText("Aperturar");
 
         btnCerrar.setText("Cerrar");
-
-        jLabel2.setText("Monto  de la apertura:");
-
-        jLabel3.setText("Código:");
-
-        btnBuscar.setText("Buscar");
-
-        jLabel4.setText("Fecha:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(245, Short.MAX_VALUE)
+                .addContainerGap(243, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +114,7 @@ public class CajaChicaGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAperturar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,10 +151,17 @@ public class CajaChicaGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CajaChicaGUI().setVisible(true);
+                CajaChicaGUI dialog = new CajaChicaGUI(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

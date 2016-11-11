@@ -116,7 +116,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CajaChicaGUI cajaChica = new CajaChicaGUI();
+        CajaChicaGUI cajaChica = new CajaChicaGUI(this,true);
         cajaChica.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
