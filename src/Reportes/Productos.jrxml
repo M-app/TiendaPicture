@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="232a2a92-03ae-4680-ad24-bbe1b87a48b4">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     producto.`codigo` AS producto_codigo,
+     producto.`Descripcion` AS producto_Descripcion,
+     producto.`tamaño` AS producto_tamaño,
+     producto.`color` AS producto_color,
+     producto.`capacidad` AS producto_capacidad,
+     producto.`marca` AS producto_marca,
+     producto.`tipo` AS producto_tipo,
+     producto.`pcosto` AS producto_pcosto,
+     producto.`existencia` AS producto_existencia,
+     producto.`mganancia` AS producto_mganancia,
+     producto.`ppublico` AS producto_ppublico
+FROM
+     `producto` producto]]>
+	</queryString>
+	<field name="producto_codigo" class="java.lang.Integer"/>
+	<field name="producto_Descripcion" class="java.lang.String"/>
+	<field name="producto_tamaño" class="java.lang.Float"/>
+	<field name="producto_color" class="java.lang.String"/>
+	<field name="producto_capacidad" class="java.lang.Float"/>
+	<field name="producto_marca" class="java.lang.String"/>
+	<field name="producto_tipo" class="java.lang.String"/>
+	<field name="producto_pcosto" class="java.lang.Float"/>
+	<field name="producto_existencia" class="java.lang.Integer"/>
+	<field name="producto_mganancia" class="java.lang.Float"/>
+	<field name="producto_ppublico" class="java.lang.Float"/>
+	<group name="producto_codigo">
+		<groupExpression><![CDATA[$F{producto_codigo}]]></groupExpression>
+		<groupHeader>
+			<band height="41">
+				<frame>
+					<reportElement mode="Opaque" x="93" y="0" width="705" height="20" backcolor="#666666" uuid="1bfdb675-9aa2-4311-badf-63708da6c1ef"/>
+					<staticText>
+						<reportElement style="Column header" x="0" y="0" width="70" height="15" uuid="7d1073ee-a388-47c8-b03f-14d2ef6bb6ae"/>
+						<text><![CDATA[Descripcion]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="81" y="0" width="70" height="15" uuid="ca2f6459-f9b2-463f-aa76-a135160b3cfd"/>
+						<text><![CDATA[Tamaño]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="140" y="0" width="70" height="15" uuid="3b20e157-f72c-4fb6-abb8-50207b409d9b"/>
+						<text><![CDATA[Color]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="210" y="0" width="70" height="15" uuid="dbf43b02-f554-452e-8475-e49e069c683d"/>
+						<text><![CDATA[Capacidad]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="280" y="0" width="70" height="15" uuid="23da53c6-c5bd-4031-a0ce-58d0e02b925c"/>
+						<text><![CDATA[Marca]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="350" y="0" width="70" height="15" uuid="a4f1704b-fa1a-43b6-99a3-2c4d63727dbb"/>
+						<text><![CDATA[Tipo]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="420" y="0" width="70" height="15" uuid="0415cde6-546b-4b95-9ae0-0cf920f2246a"/>
+						<text><![CDATA[P.costo]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="490" y="0" width="70" height="15" uuid="16351040-5208-47e9-8462-27e5bf191943"/>
+						<text><![CDATA[Existencia]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="560" y="0" width="70" height="15" uuid="71ff4dae-c437-4815-8eb3-070cd3eddfdb"/>
+						<text><![CDATA[M.ganancia]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Column header" x="630" y="0" width="70" height="15" uuid="16385b76-e3eb-408e-83c1-783f8ce203f2"/>
+						<text><![CDATA[P.publico]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="93" y="21" width="705" height="15" uuid="9243aa41-0718-4080-93b5-7a42f0f7840d"/>
+					<textField>
+						<reportElement style="Detail" x="0" y="0" width="70" height="15" uuid="b93a642a-8ad0-4954-9b64-f0974b37d3d8"/>
+						<textFieldExpression><![CDATA[$F{producto_Descripcion}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="140" y="0" width="59" height="15" uuid="cae0d1fd-d443-4d22-922f-aee50314643f"/>
+						<textFieldExpression><![CDATA[$F{producto_color}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="210" y="0" width="58" height="15" uuid="47c233bd-b747-4663-b638-1d1aa8f7b94e"/>
+						<textFieldExpression><![CDATA[$F{producto_capacidad}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="280" y="0" width="58" height="15" uuid="1fd1bddf-adbf-47d1-97a1-2e7cbb71ce3d"/>
+						<textFieldExpression><![CDATA[$F{producto_marca}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="350" y="0" width="59" height="15" uuid="b6569b27-d62d-4dee-bec2-677e4a10f00f"/>
+						<textFieldExpression><![CDATA[$F{producto_tipo}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="420" y="0" width="58" height="15" uuid="733fbe1d-f52a-43bf-bb0b-dcd9e62bae89"/>
+						<textFieldExpression><![CDATA[$F{producto_pcosto}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="490" y="0" width="55" height="15" uuid="4f0953f6-9540-49c9-9aad-d2ad42d064e4"/>
+						<textFieldExpression><![CDATA[$F{producto_existencia}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="560" y="0" width="70" height="15" uuid="5d5b5f52-8eff-4105-9e96-95c0dfc1d91a"/>
+						<textFieldExpression><![CDATA[$F{producto_mganancia}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="Detail" x="630" y="0" width="70" height="15" uuid="78534872-a566-49f3-adfb-87602385d319"/>
+						<textFieldExpression><![CDATA[$F{producto_ppublico}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField>
+					<reportElement style="Detail" x="174" y="20" width="49" height="15" uuid="1889ec24-8421-480a-a5c3-7e3d8862286e"/>
+					<textFieldExpression><![CDATA[$F{producto_tamaño}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="59d166e3-423a-4158-bf15-5b81c9c3db60"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="ef419a8b-29e5-4888-9980-99b761bf51cd"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="9c7839e1-dfd0-414a-98c7-f99c22c15aea"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="db8f6ff0-a156-4372-a1ba-af6633460f34"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="1f991a4a-4649-4c15-bc2f-925baace6dbe"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="3f3e73f6-6b4b-4bea-843a-689de6dd50be"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[PICTURE TIENDA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="244" y="0" width="350" height="67" uuid="0a869ee6-efed-4d56-881f-ea5d395660f4"/>
+				<imageExpression><![CDATA["C:\\TiendaPicture\\build\\classes\\Reportes\\Recursos\\productos-letras-poliespam.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="638" y="0" width="126" height="67" uuid="0888b7dc-3f96-419e-abf6-8c9aa1c3ff77"/>
+				<imageExpression><![CDATA["C:\\TiendaPicture\\build\\classes\\Reportes\\Recursos\\cab-tienda-online.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="48" y="0" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="5562a2b8-d8e8-4931-8bcc-c4e52f0f0fa7"/>
+			</rectangle>
+			<textField>
+				<reportElement style="SubTitle" x="97" y="0" width="195" height="24" forecolor="#000000" uuid="b9e5423d-4760-437d-84a5-bcabfc9082e7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{producto_codigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="2" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
